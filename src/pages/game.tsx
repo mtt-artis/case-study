@@ -202,7 +202,7 @@ const ValidateCard = (props: any) => {
       <Dialog.Portal>
         <Dialog.Overlay class="fixed inset-0 z-50 bg-black/20" />
         <div class="fixed inset-0 z-50 grid place-items-center">
-          <Dialog.Content class="relative grid gap-8 bg-white border-2px border-solid border-indigo-200 rounded-lg shadows p-8 min-w-500px">
+          <Dialog.Content class="relative grid gap-8 bg-white border-2px border-solid border-indigo-200 rounded-lg shadows p-8">
             <Dialog.CloseButton class="absolute top-0 right-0 h-12 w-12 grid place-items-center">
               <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.8536 2.85355C13.0488 2.65829 13.0488 2.34171 12.8536 2.14645C12.6583 1.95118 12.3417 1.95118 12.1464 2.14645L7.5 6.79289L2.85355 2.14645C2.65829 1.95118 2.34171 1.95118 2.14645 2.14645C1.95118 2.34171 1.95118 2.65829 2.14645 2.85355L6.79289 7.5L2.14645 12.1464C1.95118 12.3417 1.95118 12.6583 2.14645 12.8536C2.34171 13.0488 2.65829 13.0488 2.85355 12.8536L7.5 8.20711L12.1464 12.8536C12.3417 13.0488 12.6583 13.0488 12.8536 12.8536C13.0488 12.6583 13.0488 12.3417 12.8536 12.1464L8.20711 7.5L12.8536 2.85355Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
             </Dialog.CloseButton>
@@ -212,8 +212,8 @@ const ValidateCard = (props: any) => {
 
               <form class="grid gap-4" onSubmit={onSubmit}>
                 <fieldset disabled={props.isValid}>
-                  <div class="grid gap-4 grid-cols-2">
-                    <div class="flex items-center pl-4 border border-gray-200 rounded dark:border-gray-700">
+                  <div class="grid gap-4 sm:grid-cols-2">
+                    <div class="flex items-center pl-4 border border-gray-200 rounded">
                       <input
                         id="bordered-radio-1"
                         type="radio"
@@ -226,7 +226,7 @@ const ValidateCard = (props: any) => {
                       />
                       <label
                         for="bordered-radio-1"
-                        class="w-full py-4 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                        class="w-full py-4 mx-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                         Document conforme
                       </label>
                     </div>
@@ -243,7 +243,7 @@ const ValidateCard = (props: any) => {
                       />
                       <label
                         for="bordered-radio-2"
-                        class="w-full py-4 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                        class="w-full py-4 mx-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                         Document frauduleux
                       </label>
                     </div>
