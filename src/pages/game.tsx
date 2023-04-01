@@ -22,19 +22,16 @@ export const Game = () => {
               <div class="mouse-position-tracker"></div>
               <div class="mouse-position-tracker"></div>
               <div
-                class="tilting-card-body bg-#2e2e38 text-white relative rounded-lg p-4 border-solid border-2px border-blue-200 grid place-items-center shadow-2xl"
+                class="tilting-card-body bg-#2e2e38 text-white relative rounded-lg p-2 grid place-items-center shadow-2xl bf"
               >
-                <img class="absolute inset-0 z-0" src={base + "/" + card.id + ".jpg"} />
+                <img class="z-0" src={base + "/" + card.id + ".jpg"} />
               </div>
             </div>
           </Dialog.Trigger>
           <Dialog.Portal>
             <Dialog.Overlay class="fixed inset-0 z-50 bg-black/20" />
             <div class="fixed inset-0 z-50 grid place-items-center">
-              <Dialog.Content class="relative grid gap-8 bg-white border-2px border-solid border-blue-200 rounded-lg shadows p-8 min-w-700px min-h-900px max-h-100vh">
-                <Dialog.CloseButton class="absolute top-0 right-0 h-12 w-12 grid place-items-center">
-                  <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.8536 2.85355C13.0488 2.65829 13.0488 2.34171 12.8536 2.14645C12.6583 1.95118 12.3417 1.95118 12.1464 2.14645L7.5 6.79289L2.85355 2.14645C2.65829 1.95118 2.34171 1.95118 2.14645 2.14645C1.95118 2.34171 1.95118 2.65829 2.14645 2.85355L6.79289 7.5L2.14645 12.1464C1.95118 12.3417 1.95118 12.6583 2.14645 12.8536C2.34171 13.0488 2.65829 13.0488 2.85355 12.8536L7.5 8.20711L12.1464 12.8536C12.3417 13.0488 12.6583 13.0488 12.8536 12.8536C13.0488 12.6583 13.0488 12.3417 12.8536 12.1464L8.20711 7.5L12.8536 2.85355Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-                </Dialog.CloseButton>
+              <Dialog.Content class="relative grid gap-2 bf rounded-lg shadows p-2  max-h-100vh">
                 <Card {...card} />
               </Dialog.Content>
             </div>
@@ -48,8 +45,11 @@ export const Game = () => {
 const Card = (props: any) => {
   return (
     <>
-      <img class="absolute inset-4 z-0 mx-auto max-h-90vh max-w-90vw" src={base + "/" + props.id + ".jpg"} />
-      <div class="absolute top-16 -right-20 grid gap-4" >
+      <img class="z-0 mx-auto max-h-90vh max-w-90vw" src={base + "/" + props.id + ".jpg"} />
+      <div class="absolute top-0 -right-20 grid gap-4" >
+        <Dialog.CloseButton class="btn-cercle grid place-items-center bg-indigo-300 mb-5">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.8536 2.85355C13.0488 2.65829 13.0488 2.34171 12.8536 2.14645C12.6583 1.95118 12.3417 1.95118 12.1464 2.14645L7.5 6.79289L2.85355 2.14645C2.65829 1.95118 2.34171 1.95118 2.14645 2.14645C1.95118 2.34171 1.95118 2.65829 2.14645 2.85355L6.79289 7.5L2.14645 12.1464C1.95118 12.3417 1.95118 12.6583 2.14645 12.8536C2.34171 13.0488 2.65829 13.0488 2.85355 12.8536L7.5 8.20711L12.1464 12.8536C12.3417 13.0488 12.6583 13.0488 12.8536 12.8536C13.0488 12.6583 13.0488 12.3417 12.8536 12.1464L8.20711 7.5L12.8536 2.85355Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+        </Dialog.CloseButton>
         <Show when={props.type === "white"}>
           <ValidateCard {...props} />
         </Show>
@@ -89,7 +89,7 @@ const FindCard = (props: any) => {
       <Dialog.Portal>
         <Dialog.Overlay class="fixed inset-0 z-50 bg-black/20" />
         <div class="fixed inset-0 z-50 grid place-items-center">
-          <Dialog.Content class="relative grid gap-8 bg-white border-2px border-solid border-blue-200 rounded-lg shadows p-8">
+          <Dialog.Content class="relative grid gap-8 bg-white border-2px border-solid border-indigo-200 rounded-lg shadows p-8">
             <Dialog.CloseButton class="absolute top-0 right-0 h-12 w-12 grid place-items-center">
               <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.8536 2.85355C13.0488 2.65829 13.0488 2.34171 12.8536 2.14645C12.6583 1.95118 12.3417 1.95118 12.1464 2.14645L7.5 6.79289L2.85355 2.14645C2.65829 1.95118 2.34171 1.95118 2.14645 2.14645C1.95118 2.34171 1.95118 2.65829 2.14645 2.85355L6.79289 7.5L2.14645 12.1464C1.95118 12.3417 1.95118 12.6583 2.14645 12.8536C2.34171 13.0488 2.65829 13.0488 2.85355 12.8536L7.5 8.20711L12.1464 12.8536C12.3417 13.0488 12.6583 13.0488 12.8536 12.8536C13.0488 12.6583 13.0488 12.3417 12.8536 12.1464L8.20711 7.5L12.8536 2.85355Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
             </Dialog.CloseButton>
@@ -116,7 +116,7 @@ const CombineCard = (props: any) => {
   const [open, setOpen] = createSignal(false);
   const [error, setError] = createSignal(false);
   const [{ cards }, { combineCard }] = useCards();
-  const associateType = () => props.type === "red" ? "blue" : "red";
+  const associateType = () => props.type === "red" ? "indigo" : "red";
   const possibleCombineCards = () => cards.filter(c => c.showInPosition && c.type === associateType())
 
   const onSubmit = (e) => {
@@ -138,14 +138,14 @@ const CombineCard = (props: any) => {
       <Dialog.Portal>
         <Dialog.Overlay class="fixed inset-0 z-50 bg-black/20" />
         <div class="fixed inset-0 z-50 grid place-items-center">
-          <Dialog.Content class="relative grid gap-8 bg-white border-2px border-solid border-blue-200 rounded-lg shadows p-8">
+          <Dialog.Content class="relative grid gap-8 bg-white border-2px border-solid border-indigo-200 rounded-lg shadows p-8">
             <Dialog.CloseButton class="absolute top-0 right-0 h-12 w-12 grid place-items-center">
               <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.8536 2.85355C13.0488 2.65829 13.0488 2.34171 12.8536 2.14645C12.6583 1.95118 12.3417 1.95118 12.1464 2.14645L7.5 6.79289L2.85355 2.14645C2.65829 1.95118 2.34171 1.95118 2.14645 2.14645C1.95118 2.34171 1.95118 2.65829 2.14645 2.85355L6.79289 7.5L2.14645 12.1464C1.95118 12.3417 1.95118 12.6583 2.14645 12.8536C2.34171 13.0488 2.65829 13.0488 2.85355 12.8536L7.5 8.20711L12.1464 12.8536C12.3417 13.0488 12.6583 13.0488 12.8536 12.8536C13.0488 12.6583 13.0488 12.3417 12.8536 12.1464L8.20711 7.5L12.8536 2.85355Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
             </Dialog.CloseButton>
             <Dialog.Title class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Associer la carte</Dialog.Title>
 
             <form class="grid gap-4" onSubmit={onSubmit}>
-              <select class="input">
+              <select class="input" required>
                 <option></option>
                 <For each={possibleCombineCards()}>
                   {(c) => <option value={c.id}>{c.id} - {c.title}</option>}
@@ -187,7 +187,7 @@ const ValidateCard = (props: any) => {
       <Dialog.Portal>
         <Dialog.Overlay class="fixed inset-0 z-50 bg-black/20" />
         <div class="fixed inset-0 z-50 grid place-items-center">
-          <Dialog.Content class="relative grid gap-8 bg-white border-2px border-solid border-blue-200 rounded-lg shadows p-8 min-w-500px">
+          <Dialog.Content class="relative grid gap-8 bg-white border-2px border-solid border-indigo-200 rounded-lg shadows p-8 min-w-500px">
             <Dialog.CloseButton class="absolute top-0 right-0 h-12 w-12 grid place-items-center">
               <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.8536 2.85355C13.0488 2.65829 13.0488 2.34171 12.8536 2.14645C12.6583 1.95118 12.3417 1.95118 12.1464 2.14645L7.5 6.79289L2.85355 2.14645C2.65829 1.95118 2.34171 1.95118 2.14645 2.14645C1.95118 2.34171 1.95118 2.65829 2.14645 2.85355L6.79289 7.5L2.14645 12.1464C1.95118 12.3417 1.95118 12.6583 2.14645 12.8536C2.34171 13.0488 2.65829 13.0488 2.85355 12.8536L7.5 8.20711L12.1464 12.8536C12.3417 13.0488 12.6583 13.0488 12.8536 12.8536C13.0488 12.6583 13.0488 12.3417 12.8536 12.1464L8.20711 7.5L12.8536 2.85355Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
             </Dialog.CloseButton>
@@ -205,7 +205,7 @@ const ValidateCard = (props: any) => {
                         value="true"
                         name="is-valid"
                         style="appearance: auto;"
-                        class="outline-none w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-full"
+                        class="outline-none w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 rounded-full"
                         required
                         checked={props.isValid === "true"}
                       />
@@ -222,7 +222,7 @@ const ValidateCard = (props: any) => {
                         value="false"
                         name="is-valid"
                         style="appearance: auto;"
-                        class="outline-none w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-full"
+                        class="outline-none w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 rounded-full"
                         checked={props.isValid === "false"}
                         required
                       />
@@ -239,7 +239,7 @@ const ValidateCard = (props: any) => {
                     id="message"
                     name="message"
                     rows="4"
-                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
                     placeholder="Veuillez rédiger vos réflexions..."
                     disabled={props.isValid}
                     required
