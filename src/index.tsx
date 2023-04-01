@@ -7,6 +7,7 @@ import { Router, Routes, Route, memoryIntegration } from "@solidjs/router";
 import { GameProvider } from './context';
 import { Game } from './pages/game';
 import { StartGame } from './pages/startGame';
+import { EndGame } from './pages/endGame';
 
 const root = document.getElementById('root');
 
@@ -27,6 +28,7 @@ render(() => <GameProvider>
       <Routes>
         <Route path="/" component={StartGame} />
         <Route path="/game" component={Game} />
+        <Route path="/end" component={EndGame} />
       </Routes>
     </main>
   </Router>

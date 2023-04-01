@@ -1,13 +1,14 @@
-import { createSignal, For, Show } from 'solid-js';
+import { createSignal, For, Show } from "solid-js";
 import { Dialog } from "@kobalte/core";
-import { useCards } from '../context';
+import { useCards } from "../context";
+import { A } from "@solidjs/router";
 
 const base = import.meta.env.BASE_URL;
 
 export const Game = () => {
-  const [{ cards }] = useCards();
+  const [{ cards, endGame }] = useCards();
   return (
-    <section class="flex flex-wrap gap-16 p-8" >
+    <section class="flex flex-wrap justify-center gap-16 p-8" >
       <For each={cards.filter(c => c.showInPosition).sort((a, b) => a.showInPosition > b.showInPosition ? 1 : -1)}>
         {(card) => <Dialog.Root>
           <Dialog.Trigger >
@@ -38,7 +39,23 @@ export const Game = () => {
           </Dialog.Portal >
         </Dialog.Root >}
       </For>
-    </section>
+      <Dialog.Root isOpen={endGame()}>
+        <Dialog.Portal>
+          <Dialog.Overlay class="fixed inset-0 z-50 bg-black/20" />
+          <div class="fixed inset-0 z-50 grid place-items-center">
+            <Dialog.Content class="relative grid gap-8 bg-white border-2px border-solid border-indigo-200 rounded-lg shadows p-8">
+              <Dialog.Title class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Fin</Dialog.Title>
+              <div>
+                <p class="text-lg">Vous avez toutes les cartes en main.</p>
+                <p class="text-lg">Preparer cinq questions pour Mr. Bouffard.</p>
+              </div>
+              <A href="/" class="btn w-fit m-auto mt-4 text-2xl">End</A>
+            </Dialog.Content>
+          </div>
+        </Dialog.Portal >
+      </Dialog.Root >
+
+    </section >
   );
 };
 
