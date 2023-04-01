@@ -47,7 +47,7 @@ export const Game = () => {
               <Dialog.Title class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Fin</Dialog.Title>
               <div>
                 <p class="text-lg">Vous avez toutes les cartes en main.</p>
-                <p class="text-lg">Preparer cinq questions pour Mr. Bouffard.</p>
+                <p class="text-lg">Preparer cinq questions pour Mr. Bouchard.</p>
               </div>
               <A href="/" class="btn w-fit m-auto mt-4 text-2xl">End</A>
             </Dialog.Content>
