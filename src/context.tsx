@@ -70,9 +70,9 @@ export function GameProvider(props) {
         card.message = message;
       })
     )
-  }
+  };
 
-  const setEndGame = () => setShowEndGame(false)
+  const setEndGame = () => setShowEndGame(false);
   return (
     <GameContext.Provider value={[{ cards, errorCount, endGame }, { findCard, combineCard, setValid, setEndGame }]} >
       {props.children}

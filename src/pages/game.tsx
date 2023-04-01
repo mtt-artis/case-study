@@ -62,12 +62,12 @@ export const Game = () => {
                 <p class="text-lg">Vous avez toutes les cartes en main.</p>
                 <p class="text-lg">Préparer cinq questions pour Mr. Bouchard.</p>
               </div>
-              <Dialog.CloseButton
-                onclick={setEndGame}
+              <button
                 class="btn w-fit m-auto mt-4 text-2xl"
+                onclick={() => setEndGame()}
               >
                 End
-              </Dialog.CloseButton>
+              </button>
             </Dialog.Content>
           </div>
         </Dialog.Portal >

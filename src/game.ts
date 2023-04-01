@@ -176,10 +176,8 @@ export const cards = [
     title: "Devis HDJA BT",
     type: "blue",
     showInPosition: 0,
-    toCombine: {
-      13: 48,
-    },
-    isMaskWhen: [48],
+    toCombine: {},
+    isMaskWhen: [59],
   },
   {
     id: 13,
@@ -197,10 +195,8 @@ export const cards = [
     title: "Devis Pro Ingénierie",
     type: "blue",
     showInPosition: 0,
-    toCombine: {
-      13: 47,
-    },
-    isMaskWhen: [47],
+    toCombine: {},
+    isMaskWhen: [59],
   },
   {
     id: 30,
