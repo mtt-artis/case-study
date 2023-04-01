@@ -5,7 +5,7 @@ import { useCards } from "../context";
 const base = import.meta.env.BASE_URL;
 
 export const Game = () => {
-  const [{ cards, endGame, errorCount }] = useCards();
+  const [{ cards, endGame, errorCount }, { setEndGame }] = useCards();
   const playerCards = () => cards.filter(c => c.showInPosition).sort((a, b) => a.showInPosition > b.showInPosition ? 1 : -1)
   return (
     <section class="relative flex flex-wrap justify-center gap-16 p-8" >
@@ -32,7 +32,10 @@ export const Game = () => {
                 <div class="relative">
 
                   <img src={base + "/" + card.id + ".jpg"} />
-                  <Show when={playerCards().map(c => c.id).includes(card.isMaskWhen)}>
+                  <Show when={
+                    (card.isMaskWhen || []).every(id => playerCards().map(c => c.id).includes(id))
+                    && (card.type === "white" ? Boolean(card.message) : true)
+                  }>
                     <div class="absolute inset-0 backdrop-brightness-50" style="backdrop-filter: brightness(0.5);"></div>
                   </Show>
                 </div>
@@ -59,7 +62,10 @@ export const Game = () => {
                 <p class="text-lg">Vous avez toutes les cartes en main.</p>
                 <p class="text-lg">Préparer cinq questions pour Mr. Bouchard.</p>
               </div>
-              <Dialog.CloseButton class="btn w-fit m-auto mt-4 text-2xl">
+              <Dialog.CloseButton
+                onclick={setEndGame}
+                class="btn w-fit m-auto mt-4 text-2xl"
+              >
                 End
               </Dialog.CloseButton>
             </Dialog.Content>
@@ -94,7 +100,6 @@ const Card = (props: any) => {
 }
 
 const FindCard = (props: any) => {
-
   const [open, setOpen] = createSignal(false);
   const [error, setError] = createSignal(false);
   const [_, { findCard }] = useCards();
@@ -145,7 +150,7 @@ const FindCard = (props: any) => {
             </Dialog.Description>
 
           </Dialog.Content>
-        </div>endGame
+        </div>
       </Dialog.Portal >
     </Dialog.Root >
   )

@@ -2,10 +2,10 @@ export const cards = [
   {
     id: 0,
     title: "Start",
-    type: "white",
+    type: "",
     showInPosition: 1,
     toFind: [12, 34],
-    isMaskWhen: 59,
+    isMaskWhen: [12, 34],
   },
   {
     id: 23,
@@ -47,6 +47,7 @@ export const cards = [
     message: "",
     showInPosition: 0,
     toFind: [6],
+    isMaskWhen: [6],
   },
   {
     id: 54,
@@ -57,30 +58,33 @@ export const cards = [
     showInPosition: 0,
   },
   {
-    id: 54,
+    id: 55,
     title: "Contrat PS (Partie3)",
     type: "white",
     isValid: "",
     message: "",
     showInPosition: 0,
     toFind: [11],
+    isMaskWhen: [11],
   },
   {
     id: 59,
     title: "Le choix final",
-    type: "white",
+    type: "",
     showInPosition: 0,
     toFind: [80, 61, 74],
+    isMaskWhen: [80, 61, 74],
   },
   {
     id: 80,
     title: "Vérification d'intégrité",
-    type: "white",
+    type: "",
     showInPosition: 0,
     toFind: [14, 30, 60],
     toCombine: {
       6: 40
     },
+    isMaskWhen: [14, 30, 60, 40],
   },
   {
     id: 82,
@@ -90,6 +94,7 @@ export const cards = [
     message: "",
     showInPosition: 0,
     toFind: [53, 54, 55],
+    isMaskWhen: [53, 54, 55],
   },
   {
     id: 61,
@@ -115,6 +120,7 @@ export const cards = [
     message: "",
     showInPosition: 0,
     toFind: [4, 82],
+    isMaskWhen: [4, 82]
   },
   {
     id: 4,
@@ -141,7 +147,7 @@ export const cards = [
     toCombine: {
       34: 46,
     },
-    isMaskWhen: 59,
+    isMaskWhen: [23, 38, 68, 46],
   },
   {
     id: 34,
@@ -151,7 +157,7 @@ export const cards = [
     toCombine: {
       12: 46,
     },
-    isMaskWhen: 59,
+    isMaskWhen: [46],
   },
   {
     id: 46,
@@ -162,6 +168,7 @@ export const cards = [
     toCombine: {
       13: 59,
     },
+    isMaskWhen: [2, 13, 1, 25, 59],
   },
   {
     id: 2,
@@ -171,7 +178,7 @@ export const cards = [
     toCombine: {
       13: 48
     },
-    isMaskWhen: 59,
+    isMaskWhen: [48],
   },
   {
     id: 13,
@@ -181,6 +188,7 @@ export const cards = [
     toCombine: {
       46: 59
     },
+    isMaskWhen: [59],
   },
   {
     id: 1,
@@ -190,6 +198,7 @@ export const cards = [
     toCombine: {
       13: 47
     },
+    isMaskWhen: [47],
   },
   {
     id: 30,
@@ -199,7 +208,7 @@ export const cards = [
     toCombine: {
       13: 43
     },
-    isMaskWhen: 82,
+    isMaskWhen: [43],
   },
   {
     id: 14,
@@ -209,7 +218,7 @@ export const cards = [
     toCombine: {
       13: 27
     },
-    isMaskWhen: 82,
+    isMaskWhen: [27],
   },
   {
     id: 60,
@@ -219,7 +228,7 @@ export const cards = [
     toCombine: {
       13: 73
     },
-    isMaskWhen: 82,
+    isMaskWhen: [73],
   },
   {
     id: 6,
@@ -229,5 +238,6 @@ export const cards = [
     toCombine: {
       34: 40
     },
+    isMaskWhen: [40],
   },
 ]
