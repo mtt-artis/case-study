@@ -73,6 +73,7 @@ export const cards = [
     isValid: "",
     message: "",
     showInPosition: 0,
+    toFind: [14, 30, 60],
   },
   {
     id: 82,
