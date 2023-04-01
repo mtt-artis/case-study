@@ -9,10 +9,10 @@ export const StartGame = () => {
       <div class="grid gap-4 max-w-40ch text-lg" >
         <p>Aidez la direction du contrôle interne du centre CWH Paris à retracer le process d'un l'appel d'offre</p>
         <p>Pour ce faire :</p>
-        <ul>
-          <li>Lire attentivement chaque pièce et les analyser. Des indices peuvent être cachés.</li>
-          <li>Associer les cartes ayant un puzzle rouge avec celles ayant un puzzle bleu quand cela est nécessaire.</li>
-        </ul>
+        <ol class="list-decimal" style="list-style:decimal">
+          <li class="ml-4">Lisez attentivement chaque pièce et les analyser. Des indices peuvent être cachés.</li>
+          <li class="ml-4">Associez les cartes ayant un puzzle rouge avec celles ayant un puzzle bleu quand cela est nécessaire.</li>
+        </ol>
         <p>1. 2. 3. Partez
         </p>
 

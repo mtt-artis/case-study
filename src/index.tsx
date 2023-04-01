@@ -21,7 +21,7 @@ render(() => <GameProvider>
   <Router source={memoryIntegration()}>
     <header class="grid justify-center">
       <h1 class="p-8 md:my-8 text-4xl text-indigo-600 font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-        Relation electrique chez CWH Paris
+        Relations electriques chez CWH Paris
       </h1>
     </header>
     <main class="w-full">
