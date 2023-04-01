@@ -31,12 +31,7 @@ export function GameProvider(props) {
   const [cards, setCards] = createStore<Card[]>(game);
   const [errorCount, setErrorCount] = createSignal(0);
 
-  const endGame = () => {
-    return cards.every(c => {
-      if (!c.showInPosition) return false;
-      if (c.type === "white") return Boolean(c.isValid)
-    })
-  }
+  const endGame = () => cards.every(c => c.showInPosition);
 
   let i = 3;
 
