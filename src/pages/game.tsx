@@ -1,7 +1,6 @@
 import { createSignal, For, Show } from "solid-js";
 import { Dialog } from "@kobalte/core";
 import { useCards } from "../context";
-import { A } from "@solidjs/router";
 
 const base = import.meta.env.BASE_URL;
 
@@ -124,7 +123,7 @@ const FindCard = (props: any) => {
             </Dialog.Description>
 
           </Dialog.Content>
-        </div>
+        </div>endGame
       </Dialog.Portal >
     </Dialog.Root >
   )
@@ -134,7 +133,7 @@ const CombineCard = (props: any) => {
   const [open, setOpen] = createSignal(false);
   const [error, setError] = createSignal(false);
   const [{ cards }, { combineCard }] = useCards();
-  const associateType = () => props.type === "red" ? "indigo" : "red";
+  const associateType = () => props.type === "red" ? "blue" : "red";
   const possibleCombineCards = () => cards.filter(c => c.showInPosition && c.type === associateType())
 
   const onSubmit = (e) => {
