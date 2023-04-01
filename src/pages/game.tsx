@@ -39,7 +39,7 @@ export const Game = () => {
           </Dialog.Portal >
         </Dialog.Root >}
       </For>
-      <Dialog.Root isOpen={endGame()}>
+      <Dialog.Root isOpen={true}>
         <Dialog.Portal>
           <Dialog.Overlay class="fixed inset-0 z-50 bg-black/20" />
           <div class="fixed inset-0 z-50 grid place-items-center">
@@ -47,9 +47,12 @@ export const Game = () => {
               <Dialog.Title class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Fin</Dialog.Title>
               <div>
                 <p class="text-lg">Vous avez toutes les cartes en main.</p>
-                <p class="text-lg">Preparer cinq questions pour Mr. Bouchard.</p>
+                <p class="text-lg">Préparer cinq questions pour Mr. Bouchard.</p>
               </div>
-              <A href="/" class="btn w-fit m-auto mt-4 text-2xl">End</A>
+
+              <Dialog.CloseButton class="btn w-fit m-auto mt-4 text-2xl">
+                End
+              </Dialog.CloseButton>
             </Dialog.Content>
           </div>
         </Dialog.Portal >
