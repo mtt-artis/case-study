@@ -9,8 +9,9 @@ type Card = {
   showInPosition: number;
   toFind?: number[];
   toAddWith?: Record<number, number>;
-  message: string;
-  isValid: string;
+  message?: string;
+  isValid?: string;
+  isMaskWhen?: number;
 }
 
 const GameContext = createContext<[

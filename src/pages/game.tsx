@@ -6,9 +6,10 @@ const base = import.meta.env.BASE_URL;
 
 export const Game = () => {
   const [{ cards, endGame }] = useCards();
+  const playerCards = () => cards.filter(c => c.showInPosition).sort((a, b) => a.showInPosition > b.showInPosition ? 1 : -1)
   return (
     <section class="flex flex-wrap justify-center gap-16 p-8" >
-      <For each={cards.filter(c => c.showInPosition).sort((a, b) => a.showInPosition > b.showInPosition ? 1 : -1)}>
+      <For each={playerCards()}>
         {(card) => <Dialog.Root>
           <Dialog.Trigger >
             <div class="tilting-card-wrapper w-300px h-423px cursor-pointer">
@@ -24,7 +25,13 @@ export const Game = () => {
               <div
                 class="tilting-card-body bg-#2e2e38 text-white relative rounded-lg p-2 grid place-items-center shadow-2xl bf"
               >
-                <img class="z-0" src={base + "/" + card.id + ".jpg"} />
+                <div class="relative">
+
+                  <img src={base + "/" + card.id + ".jpg"} />
+                  <Show when={playerCards().map(c => c.id).includes(card.isMaskWhen)}>
+                    <div class="absolute inset-0 backdrop-brightness-50" style="backdrop-filter: brightness(0.5);"></div>
+                  </Show>
+                </div>
               </div>
             </div>
           </Dialog.Trigger>
@@ -69,7 +76,7 @@ const Card = (props: any) => {
         <Dialog.CloseButton class="btn-cercle bg-indigo-500 mx-5 md:m-inherit md:my-5">
           <svg width="20" height="20" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.8536 2.85355C13.0488 2.65829 13.0488 2.34171 12.8536 2.14645C12.6583 1.95118 12.3417 1.95118 12.1464 2.14645L7.5 6.79289L2.85355 2.14645C2.65829 1.95118 2.34171 1.95118 2.14645 2.14645C1.95118 2.34171 1.95118 2.65829 2.14645 2.85355L6.79289 7.5L2.14645 12.1464C1.95118 12.3417 1.95118 12.6583 2.14645 12.8536C2.34171 13.0488 2.65829 13.0488 2.85355 12.8536L7.5 8.20711L12.1464 12.8536C12.3417 13.0488 12.6583 13.0488 12.8536 12.8536C13.0488 12.6583 13.0488 12.3417 12.8536 12.1464L8.20711 7.5L12.8536 2.85355Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
         </Dialog.CloseButton>
-        <Show when={props.type === "white"}>
+        <Show when={props.isValid != undefined}>
           <ValidateCard {...props} />
         </Show>
         <Show when={props.toFind}>
@@ -227,7 +234,7 @@ const ValidateCard = (props: any) => {
                       <label
                         for="bordered-radio-1"
                         class="w-full py-4 mx-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                        Document conforme
+                        Document relevant
                       </label>
                     </div>
                     <div class="flex items-center pl-4 border border-gray-200 rounded dark:border-gray-700">
@@ -244,7 +251,7 @@ const ValidateCard = (props: any) => {
                       <label
                         for="bordered-radio-2"
                         class="w-full py-4 mx-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                        Document frauduleux
+                        Document non relevant
                       </label>
                     </div>
                   </div>

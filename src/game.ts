@@ -1,5 +1,13 @@
 export const cards = [
   {
+    id: 0,
+    title: "Start",
+    type: "white",
+    showInPosition: 1,
+    toFind: [12, 34],
+    isMaskWhen: 59,
+  },
+  {
     id: 23,
     title: "Mail à HDJA BT",
     type: "white",
@@ -61,8 +69,6 @@ export const cards = [
     id: 59,
     title: "Le choix final",
     type: "white",
-    isValid: "",
-    message: "",
     showInPosition: 0,
     toFind: [80, 61, 74],
   },
@@ -70,10 +76,11 @@ export const cards = [
     id: 80,
     title: "Vérification d'intégrité",
     type: "white",
-    isValid: "",
-    message: "",
     showInPosition: 0,
     toFind: [14, 30, 60],
+    toCombine: {
+      6: 40
+    },
   },
   {
     id: 82,
@@ -129,112 +136,98 @@ export const cards = [
     id: 12,
     title: "L'appel d'offre",
     type: "red",
-    isValid: "",
-    message: "",
-    showInPosition: 1,
+    showInPosition: 0,
     toFind: [23, 38, 68],
     toCombine: {
-      34: 46
+      34: 46,
     },
+    isMaskWhen: 59,
   },
   {
     id: 34,
     title: "Le CCTP Simplifié",
     type: "blue",
-    isValid: "",
-    message: "",
-    showInPosition: 2,
+    showInPosition: 0,
     toCombine: {
-      12: 46
-    }
+      12: 46,
+    },
+    isMaskWhen: 59,
   },
   {
     id: 46,
     title: "Les réponses à l'AO",
     type: "red",
-    isValid: "",
-    message: "",
     showInPosition: 0,
     toFind: [2, 13, 1, 25],
     toCombine: {
-      13: 59
+      13: 59,
     },
   },
   {
     id: 2,
     title: "Devis HDJA BT",
     type: "blue",
-    isValid: "",
-    message: "",
     showInPosition: 0,
     toCombine: {
       13: 48
-    }
+    },
+    isMaskWhen: 59,
   },
   {
     id: 13,
     title: "Etude BTP PARIS",
     type: "blue",
-    isValid: "",
-    message: "",
     showInPosition: 0,
     toCombine: {
       46: 59
-    }
+    },
   },
   {
     id: 1,
     title: "Devis Pro Ingénierie",
     type: "blue",
-    isValid: "",
-    message: "",
     showInPosition: 0,
     toCombine: {
       13: 47
-    }
+    },
   },
   {
     id: 30,
     title: "Société.com",
     type: "red",
-    isValid: "",
-    message: "",
     showInPosition: 0,
     toCombine: {
       13: 43
-    }
+    },
+    isMaskWhen: 82,
   },
   {
     id: 14,
     title: "Société.com",
     type: "red",
-    isValid: "",
-    message: "",
     showInPosition: 0,
     toCombine: {
       13: 27
-    }
+    },
+    isMaskWhen: 82,
   },
   {
     id: 60,
     title: "Société.com",
     type: "red",
-    isValid: "",
-    message: "",
     showInPosition: 0,
     toCombine: {
       13: 73
-    }
+    },
+    isMaskWhen: 82,
   },
   {
     id: 6,
     title: "Durée de la mission",
     type: "red",
-    isValid: "",
-    message: "",
     showInPosition: 0,
     toCombine: {
       34: 40
-    }
+    },
   },
 ]

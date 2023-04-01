@@ -7,17 +7,15 @@ export const StartGame = () => {
       style="grid-template-columds: 1fr 15rem"
     >
       <div class="grid gap-4 max-w-40ch text-lg" >
-        <p>
-          Lors de son investigation, le service de compliance de l'entité à appris
-          que le centre CWH Paris avait décidé de faire appel à un persataire
-          dans le cadre d'une assistance en génie civil pour une revue des plans de coffrage.
+        <p>En intro on peut mettre - Aidez la direction du contrôle interne du centre CWH Paris à retracer le process d'un l'appel d'offre</p>
+        <p>Pour ce faire :</p>
+        <ul>
+          <li>Lire attentivement chaque pièce et les analyser. Des indices peuvent être cachés.</li>
+          <li>Associer les cartes ayant un puzzle rouge avec celles ayant un puzzle bleu quand cela est nécessaire.</li>
+        </ul>
+        <p>1. 2. 3. Partez
         </p>
-        <p>
-          Patrick Bouffard, un collaborateur fidèle et apprécié de tous, chef de projets réseaux et prescripteur d'achat en zone parisienne s'est occupé de l'appel d'offre.
-        </p>
-        <p>
-          Aidez la direction de contrôle interne du centre à retracer le prossecus d'appel.
-        </p>
+
       </div>
 
       <img class="w-80 hidden md:block" src={import.meta.env.BASE_URL + "/undraw_file_searching_re_3evy.svg"} />
