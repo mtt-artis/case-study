@@ -2,6 +2,8 @@ import { createSignal, For, Show } from 'solid-js';
 import { Dialog } from "@kobalte/core";
 import { useCards } from '../context';
 
+const base = import.meta.env.BASE_URL;
+
 export const Game = () => {
   const [{ cards }] = useCards();
   return (
@@ -22,7 +24,7 @@ export const Game = () => {
               <div
                 class="tilting-card-body bg-#2e2e38 text-white relative rounded-lg p-4 border-solid border-2px border-blue-200 grid place-items-center shadow-2xl"
               >
-                <img class="absolute inset-0 z-0" src={card.id + ".jpg"} />
+                <img class="absolute inset-0 z-0" src={base + "/" + card.id + ".jpg"} />
               </div>
             </div>
           </Dialog.Trigger>
@@ -46,7 +48,7 @@ export const Game = () => {
 const Card = (props: any) => {
   return (
     <>
-      <img class="absolute inset-4 z-0 mx-auto max-h-90vh max-w-90vw" src={props.id + ".jpg"} />
+      <img class="absolute inset-4 z-0 mx-auto max-h-90vh max-w-90vw" src={base + "/" + props.id + ".jpg"} />
       <div class="absolute top-16 -right-20 grid gap-4" >
         <Show when={props.type === "white"}>
           <ValidateCard {...props} />

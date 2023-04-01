@@ -16,7 +16,7 @@ export const StartGame = () => {
         Aidez la direction de contrôle interne du centre à retracer le prossecus d'appel
       </p>
 
-      <A href="/game" class="btn w-fit m-auto mt-16 text-2xl">Start</A>
+      <A href="game" class="btn w-fit m-auto mt-16 text-2xl">Start</A>
     </section>
   );
 };

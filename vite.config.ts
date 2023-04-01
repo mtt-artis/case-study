@@ -20,4 +20,5 @@ export default defineConfig({
     target: 'esnext',
     outDir: 'docs',
   },
+  base: '/case-study',
 });

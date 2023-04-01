@@ -25,8 +25,8 @@ render(() => <GameProvider>
     </header>
     <main class="w-full">
       <Routes>
-        <Route path="/" component={StartGame} />
-        <Route path="/game" component={Game} />
+        <Route path=":anyPage*/" component={StartGame} />
+        <Route path=":anyPage*/game" component={Game} />
       </Routes>
     </main>
   </Router>

@@ -1,6 +1,8 @@
 import { createSignal, For, Show } from 'solid-js';
 import { useCards } from '../context';
 
+const base = import.meta.env.BASE_URL;
+
 export const EndGame = () => {
   const [{ cards }] = useCards();
   return (
@@ -8,7 +10,7 @@ export const EndGame = () => {
       <For each={cards.filter(c => c.showInPosition).sort((a, b) => a.showInPosition > b.showInPosition ? 1 : -1)}>
         {(card) =>
           <div>
-            <img class="absolute inset-0 z-0" src={card.id + ".jpg"} />
+            <img class="absolute inset-0 z-0" src={base + "/" + card.id + ".jpg"} />
           </div>
         }
       </For>
