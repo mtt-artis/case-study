@@ -1,14 +1,18 @@
-import { createSignal, For, Show } from "solid-js";
+import { createEffect, createSignal, For, onCleanup, Show } from "solid-js";
 import { Dialog } from "@kobalte/core";
 import { useCards } from "../context";
 
 const base = import.meta.env.BASE_URL;
 
 export const Game = () => {
-  const [{ cards, endGame }] = useCards();
+  const [{ cards, endGame, errorCount }] = useCards();
   const playerCards = () => cards.filter(c => c.showInPosition).sort((a, b) => a.showInPosition > b.showInPosition ? 1 : -1)
   return (
-    <section class="flex flex-wrap justify-center gap-16 p-8" >
+    <section class="relative flex flex-wrap justify-center gap-16 p-8" >
+      <Show when={errorCount()}>
+        <div class="absolute right-12 -top-12 z-2 text-white bg-red-700 font-medium rounded-full text-sm min-w-12 p-4 grid place-items-center">{errorCount()} erreur{errorCount() > 1 ? "s" : ""}</div>
+      </Show>
+
       <For each={playerCards()}>
         {(card) => <Dialog.Root>
           <Dialog.Trigger >
@@ -50,12 +54,11 @@ export const Game = () => {
           <Dialog.Overlay class="fixed inset-0 z-50 bg-black/20" />
           <div class="fixed inset-0 z-50 grid place-items-center">
             <Dialog.Content class="relative grid gap-8 bg-white border-2px border-solid border-indigo-200 rounded-lg shadows p-8">
-              <Dialog.Title class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Fin</Dialog.Title>
+              <Dialog.Title class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Fin</Dialog.Title>
               <div>
                 <p class="text-lg">Vous avez toutes les cartes en main.</p>
                 <p class="text-lg">Préparer cinq questions pour Mr. Bouchard.</p>
               </div>
-
               <Dialog.CloseButton class="btn w-fit m-auto mt-4 text-2xl">
                 End
               </Dialog.CloseButton>
@@ -103,6 +106,16 @@ const FindCard = (props: any) => {
       ? setOpen(false)
       : setError(true);
   }
+
+  let timeOut = 0;
+  createEffect(() => {
+    clearTimeout(timeOut)
+    if (error())
+      timeOut = setTimeout(() => setError(false), 1_000)
+  });
+
+  onCleanup(() => clearTimeout(timeOut));
+
   return (
     <Dialog.Root isOpen={open()} onOpenChange={setOpen}>
       <Dialog.Trigger class="btn-cercle">
@@ -150,6 +163,16 @@ const CombineCard = (props: any) => {
       ? setOpen(false)
       : setError(true);
   }
+
+  let timeOut = 0;
+  createEffect(() => {
+    clearTimeout(timeOut)
+    if (error())
+      timeOut = setTimeout(() => setError(false), 1_000)
+  });
+
+  onCleanup(() => clearTimeout(timeOut));
+
   return (
     <Dialog.Root isOpen={open()} onOpenChange={setOpen}>
       <Dialog.Trigger class="btn-cercle">
@@ -193,12 +216,14 @@ const CombineCard = (props: any) => {
 const ValidateCard = (props: any) => {
   const [open, setOpen] = createSignal(false);
   const [_, { setValid }] = useCards();
+
   const onSubmit = (e) => {
     e.preventDefault();
     const f = new FormData(e.target);
     setValid(props.id, f.get("is-valid") as string, f.get("message") as string);
     setOpen(false);
   }
+
   return (
     <Dialog.Root isOpen={open()} onOpenChange={setOpen}>
       <Dialog.Trigger class="btn-cercle disabled:bg-gray">

@@ -17,7 +17,7 @@ type Card = {
 const GameContext = createContext<[
   {
     cards: Card[];
-    actionNumber: Accessor<number>;
+    errorCount: Accessor<number>;
     endGame: Accessor<boolean>;
   },
   {
@@ -29,7 +29,7 @@ const GameContext = createContext<[
 
 export function GameProvider(props) {
   const [cards, setCards] = createStore<Card[]>(game);
-  const [actionNumber, setActionNumber] = createSignal(0);
+  const [errorCount, setErrorCount] = createSignal(0);
 
   const endGame = () => {
     return cards.every(c => {
@@ -41,8 +41,10 @@ export function GameProvider(props) {
   let i = 3;
 
   const findCard = (cardId: number, inCardsId: number[]) => {
-    setActionNumber(i => ++i)
-    if (!inCardsId.includes(cardId)) return false;
+    if (!inCardsId.includes(cardId)) {
+      setErrorCount(i => ++i);
+      return false;
+    };
     setCards(
       card => card.id === cardId,
       produce(card => card.showInPosition = i++)
@@ -51,9 +53,11 @@ export function GameProvider(props) {
   };
 
   const combineCard = (cardId: number, inCardsId: Record<number, number>) => {
-    setActionNumber(i => ++i)
     const nextCard = inCardsId[cardId];
-    if (!nextCard) return false
+    if (!nextCard) {
+      setErrorCount(i => ++i);
+      return false;
+    };
     setCards(
       card => card.id === nextCard,
       produce(card => card.showInPosition = i++)
@@ -71,7 +75,7 @@ export function GameProvider(props) {
     )
   }
   return (
-    <GameContext.Provider value={[{ cards, actionNumber, endGame }, { findCard, combineCard, setValid }]} >
+    <GameContext.Provider value={[{ cards, errorCount, endGame }, { findCard, combineCard, setValid }]} >
       {props.children}
     </ GameContext.Provider>
   );
