@@ -33,7 +33,7 @@ export function GameProvider(props) {
 
   const endGame = () => cards.every(c => c.showInPosition);
 
-  let i = 3;
+  let showInPosition = 3;
 
   const findCard = (cardId: number, inCardsId: number[]) => {
     if (!inCardsId.includes(cardId)) {
@@ -42,7 +42,7 @@ export function GameProvider(props) {
     };
     setCards(
       card => card.id === cardId,
-      produce(card => card.showInPosition = i++)
+      produce(card => card.showInPosition = showInPosition++)
     )
     return true;
   };
@@ -55,7 +55,7 @@ export function GameProvider(props) {
     };
     setCards(
       card => card.id === nextCard,
-      produce(card => card.showInPosition = i++)
+      produce(card => card.showInPosition = showInPosition++)
     )
     return true;
   };
