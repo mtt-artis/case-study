@@ -6,7 +6,7 @@ export const StartGame = () => {
       class="m-auto grid gap-4 p-8 md:grid-cols-2 place-items-center max-w-100ch"
       style="grid-template-columds: 1fr 15rem"
     >
-      <div class="grid gap-4 p-8 max-w-40ch text-lg" >
+      <div class="grid gap-4 max-w-40ch text-lg" >
         <p>
           Lors de son investigation, le service de compliance de l'entité à appris
           que le centre CWH Paris avait décidé de faire appel à un persataire

@@ -19,7 +19,7 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
 render(() => <GameProvider>
   <Router source={memoryIntegration()}>
     <header class="grid justify-center">
-      <h1 class="my-16 text-4xl text-indigo-600 font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+      <h1 class="my-8 md:my-16 text-4xl text-indigo-600 font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
         Case study
       </h1>
     </header>
