@@ -7,7 +7,7 @@ export const StartGame = () => {
       style="grid-template-columds: 1fr 15rem"
     >
       <div class="grid gap-4 max-w-40ch text-lg" >
-        <p>En intro on peut mettre - Aidez la direction du contrôle interne du centre CWH Paris à retracer le process d'un l'appel d'offre</p>
+        <p>Aidez la direction du contrôle interne du centre CWH Paris à retracer le process d'un l'appel d'offre</p>
         <p>Pour ce faire :</p>
         <ul>
           <li>Lire attentivement chaque pièce et les analyser. Des indices peuvent être cachés.</li>
