@@ -10,14 +10,13 @@ export const StartGame = () => {
         <p>
           Lors de son investigation, le service de compliance de l'entité à appris
           que le centre CWH Paris avait décidé de faire appel à un persataire
-          dans le cadre d'une assistance en génie civil pour une revue des plans de coffrage
+          dans le cadre d'une assistance en génie civil pour une revue des plans de coffrage.
         </p>
         <p>
-          Patrick Bouffar, un collaborateur ficèle et apprécié de tous, chef de projets réseaux et prescripteur d'achat en zone parisienne
-          s'est occupé de l'appel d'offre.
+          Patrick Bouffar, un collaborateur fidèle et apprécié de tous, chef de projets réseaux et prescripteur d'achat en zone parisienne s'est occupé de l'appel d'offre.
         </p>
         <p>
-          Aidez la direction de contrôle interne du centre à retracer le prossecus d'appel
+          Aidez la direction de contrôle interne du centre à retracer le prossecus d'appel.
         </p>
       </div>
 
