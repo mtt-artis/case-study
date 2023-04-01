@@ -82,7 +82,7 @@ export const cards = [
     showInPosition: 0,
     toFind: [14, 30, 60],
     toCombine: {
-      6: 40
+      6: 40,
     },
     isMaskWhen: [14, 30, 60, 40],
   },
@@ -156,8 +156,9 @@ export const cards = [
     showInPosition: 0,
     toCombine: {
       12: 46,
+      6: 40,
     },
-    isMaskWhen: [46],
+    isMaskWhen: [46, 40],
   },
   {
     id: 46,
@@ -176,7 +177,7 @@ export const cards = [
     type: "blue",
     showInPosition: 0,
     toCombine: {
-      13: 48
+      13: 48,
     },
     isMaskWhen: [48],
   },
@@ -186,9 +187,10 @@ export const cards = [
     type: "blue",
     showInPosition: 0,
     toCombine: {
-      46: 59
+      46: 59,
+      60: 73,
     },
-    isMaskWhen: [59],
+    isMaskWhen: [59, 73],
   },
   {
     id: 1,
@@ -196,7 +198,7 @@ export const cards = [
     type: "blue",
     showInPosition: 0,
     toCombine: {
-      13: 47
+      13: 47,
     },
     isMaskWhen: [47],
   },
@@ -206,7 +208,7 @@ export const cards = [
     type: "red",
     showInPosition: 0,
     toCombine: {
-      13: 43
+      13: 43,
     },
     isMaskWhen: [43],
   },
@@ -216,7 +218,7 @@ export const cards = [
     type: "red",
     showInPosition: 0,
     toCombine: {
-      13: 27
+      13: 27,
     },
     isMaskWhen: [27],
   },
@@ -226,7 +228,7 @@ export const cards = [
     type: "red",
     showInPosition: 0,
     toCombine: {
-      13: 73
+      13: 73,
     },
     isMaskWhen: [73],
   },
@@ -236,7 +238,7 @@ export const cards = [
     type: "red",
     showInPosition: 0,
     toCombine: {
-      34: 40
+      34: 40,
     },
     isMaskWhen: [40],
   },
