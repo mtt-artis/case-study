@@ -81,10 +81,7 @@ export const cards = [
     type: "",
     showInPosition: 0,
     toFind: [14, 30, 60],
-    toCombine: {
-      6: 40,
-    },
-    isMaskWhen: [14, 30, 60, 40],
+    isMaskWhen: [14, 30, 60],
   },
   {
     id: 82,
@@ -203,20 +200,14 @@ export const cards = [
     title: "Société.com",
     type: "red",
     showInPosition: 0,
-    toCombine: {
-      13: 43,
-    },
-    isMaskWhen: [43],
+    isMaskWhen: [73],
   },
   {
     id: 14,
     title: "Société.com",
     type: "red",
     showInPosition: 0,
-    toCombine: {
-      13: 27,
-    },
-    isMaskWhen: [27],
+    isMaskWhen: [73],
   },
   {
     id: 60,

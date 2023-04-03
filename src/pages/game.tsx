@@ -5,8 +5,12 @@ import { useCards } from "../context";
 const base = import.meta.env.BASE_URL;
 
 export const Game = () => {
-  const [{ cards, endGame, errorCount }, { setEndGame }] = useCards();
-  const playerCards = () => cards.filter(c => c.showInPosition).sort((a, b) => a.showInPosition > b.showInPosition ? 1 : -1)
+  const [{ cards, endGame, errorCount }] = useCards();
+  const playerCards = () => cards
+    .filter(c => c.showInPosition)
+    .sort((a, b) => a.showInPosition > b.showInPosition ? 1 : -1);
+  const [showDialogEndGame, setShowDialogEndGame] = createSignal(true);
+
   return (
     <section class="relative flex flex-wrap justify-center gap-16 p-8" >
       <Show when={errorCount()}>
@@ -52,19 +56,19 @@ export const Game = () => {
           </Dialog.Portal >
         </Dialog.Root >}
       </For>
-      <Dialog.Root isOpen={endGame()}>
+      <Dialog.Root isOpen={endGame() && showDialogEndGame()}>
         <Dialog.Portal>
           <Dialog.Overlay class="fixed inset-0 z-50 bg-black/20" />
           <div class="fixed inset-0 z-50 grid place-items-center">
             <Dialog.Content class="relative grid gap-2 bg-white border-2px border-solid border-indigo-200 rounded-lg shadows p-8">
               <Dialog.Title class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Fin</Dialog.Title>
               <div>
-                <p class="text-lg">Vous avez toutes les cartes en main.</p>
-                <p class="text-lg">Préparer cinq questions pour Mr. Bouchard.</p>
+                <p class="text-lg">Tu as toutes les pièces en ta possession.</p>
+                <p class="text-lg">Finis de les analyser et prépare 5 questions à poser lors de l'entretien avec Patrick Bouchard</p>
               </div>
               <button
                 class="btn w-fit m-auto mt-4 text-2xl"
-                onclick={() => setEndGame()}
+                onclick={() => setShowDialogEndGame(false)}
               >
                 End
               </button>

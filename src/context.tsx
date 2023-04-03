@@ -24,16 +24,14 @@ const GameContext = createContext<[
     findCard: (cardId: number, inCardsId: number[]) => boolean;
     combineCard: (cardId: number, inCardsId: Record<number, number>) => boolean;
     setValid: (cardId: number, isValid: string, message: string) => void;
-    setEndGame: () => void;
   }
 ]>();
 
 export function GameProvider(props) {
   const [cards, setCards] = createStore<Card[]>(game);
   const [errorCount, setErrorCount] = createSignal(0);
-  const [showEndGame, setShowEndGame] = createSignal(true);
 
-  const endGame = () => cards.every(c => c.showInPosition) && showEndGame();
+  const endGame = () => cards.every(c => c.showInPosition);
 
   let showInPosition = 3;
 
@@ -72,9 +70,11 @@ export function GameProvider(props) {
     )
   };
 
-  const setEndGame = () => setShowEndGame(false);
   return (
-    <GameContext.Provider value={[{ cards, errorCount, endGame }, { findCard, combineCard, setValid, setEndGame }]} >
+    <GameContext.Provider value={[
+      { cards, errorCount, endGame },
+      { findCard, combineCard, setValid }
+    ]} >
       {props.children}
     </ GameContext.Provider>
   );
