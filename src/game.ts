@@ -229,4 +229,11 @@ export const cards = [
     },
     isMaskWhen: [40],
   },
+  {
+    id: 40,
+    title: "La durée du contrat",
+    type: "white",
+    showInPosition: 0,
+    isMaskWhen: [],
+  },
 ]
