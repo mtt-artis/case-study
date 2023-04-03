@@ -233,6 +233,8 @@ export const cards = [
     id: 40,
     title: "La durée du contrat",
     type: "white",
+    isValid: "",
+    message: "",
     showInPosition: 0,
     isMaskWhen: [],
   },
